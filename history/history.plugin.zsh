@@ -4,7 +4,7 @@
 
 if zstyle -T ':zsh-utils:plugins:history' use-xdg-basedirs; then
   # Ensure the data directory exists
-  _data_dir=${XDG_DATA_HOME:-$HOME/.local/share}/zsh
+  _data_dir=${XDG_STATE_HOME:-$HOME/.local/state}/zsh
   [[ -d "$_data_dir"  ]] || mkdir -p "$_data_dir"
 
   _zhistfile=$_data_dir/${ZHISTFILE:-history}
@@ -33,8 +33,8 @@ setopt HIST_BEEP              # Beep when accessing non-existent history.
 #
 
 HISTFILE="$_zhistfile"
-HISTSIZE=10000  # The maximum number of events to save in the internal history.
-SAVEHIST=10000  # The maximum number of events to save in the history file.
+HISTSIZE=100000  # The maximum number of events to save in the internal history.
+SAVEHIST=100000  # The maximum number of events to save in the history file.
 
 #
 # Aliases
